@@ -29,6 +29,8 @@ class MyWidget(QWidget):
     def magic(self):
         self.text.setText("Looking for Lyrics...")
         url = "https://www.google.com/search?q=" + self.textbox.text()
+        print("Lyric entered: " + self.textbox.text)
+        print("Checking " + url + " for song name")
         html = requests.get(url)
         soup = bs(html.text, 'html.parser')
         song_tag = soup.body.findAll(text=re.compile('- YouTube'))
@@ -44,6 +46,10 @@ class MyWidget(QWidget):
 
         if place == -1:
             song_name = "ERROR: no song name found"
+            print(song_name)
+        elif place == 0:
+            song_name = str(song_tag[0])[:-10]
+            print(song_name)
         else:
             song_name = str(song_tag[place-1])[:-10]
             print(song_name)
