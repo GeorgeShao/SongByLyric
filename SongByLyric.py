@@ -29,12 +29,12 @@ class MyWidget(QWidget):
     def magic(self):
         self.text.setText("Looking for Lyrics...")
         url = "https://www.google.com/search?q=" + self.textbox.text()
-        print("Lyric entered: " + self.textbox.text)
+        print("Lyric entered: " + self.textbox.text())
         print("Checking " + url + " for song name")
         html = requests.get(url)
         soup = bs(html.text, 'html.parser')
         song_tag = soup.body.findAll(text=re.compile('- YouTube'))
-        print(song_tag)
+        print("Song Tag: " + str(song_tag))
 
         max = 0
         place = -1
