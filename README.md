@@ -1,7 +1,7 @@
 # SongByLyric
 Python application that gets the name of a song using it's lyrics.
 
-**Development State:** Finished, will continue to receive updates.
+**Development State:** Finished.
 
 ## Installation Instructions
 Simply download the SongByLyric.py file and open it in PyCharm or another Python IDE.
